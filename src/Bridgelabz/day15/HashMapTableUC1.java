@@ -1,18 +1,17 @@
 package Bridgelabz.day15;
 
-public class HashMapTableUC3 {
 
+public class HashMapTableUC1 {
     public static void main(String[] args) {
-        HashMapTable<String, Integer> hashImpl = new HashMapTable<String, Integer>();
-        String message = "Paranoids are not paranoid because they are paranoid but " +
-                "because they keep putting themselves deliberately into paranoid avoidable situations";
+        HashMapTableNew<String, Integer> hashImpl = new HashMapTableNew<>() ;
+        String message = "To be or not to be";
 
         //Split the words when a white space comes up.
         //Convert all the words in lowercase
         String[] messageArray = message.toLowerCase().split(" ");
 
         for(String word: messageArray) {
-            //Search for the word in the hashtable
+            //Search for the word in the linked list
             Integer value =  hashImpl.get(word);
             //If not found, frequency of the word StayWith 1
             if( value == null)
@@ -21,14 +20,7 @@ public class HashMapTableUC3 {
                 //If found, frequency of the word increases by 1
                 value = value + 1;
             hashImpl.add(word , value);
-            System.out.println("Value = "+value);
         }
-        System.out.println(hashImpl);
-
-        //Remove "avoidable" from the hashtable
-        hashImpl.remove("avoidable");
-
-        //Display the hashtable
         System.out.println(hashImpl);
     }
 }
